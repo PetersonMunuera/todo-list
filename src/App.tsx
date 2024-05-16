@@ -1,8 +1,13 @@
+import { Header } from './components/Header'
 import './global.css'
 
 function App() {
   return (
-    <>hello world</>
+    <div>
+      <Header />
+
+      <main>content</main>
+    </div>
   )
 }
 
