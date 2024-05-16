@@ -1,0 +1,67 @@
+.taskItem {
+  background: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  padding: 1rem;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.isDone {
+  border: 1px solid var(--gray-500);
+}
+
+.taskItem + .taskItem {
+  margin-top: 0.75rem;
+}
+
+.check {
+  color: var(--blue);
+  background: transparent;
+  border: 0;
+  line-height: 0;
+
+  cursor: pointer;
+}
+
+.check:hover {
+  color: var(--blue-dark);
+}
+
+.isDone .check {
+  color: var(--purple);
+}
+
+.isDone .check:hover {
+  color: var(--purple-dark);
+}
+
+.taskItem p {
+  flex: 1;
+  color: var(--gray-100);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.isDone p {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.delete {
+  background: transparent;
+  padding: 0.375rem;
+  border: 0;
+  border-radius: 4px;
+  line-height: 0;
+  
+  color: var(--gray-300);
+  cursor: pointer;
+}
+
+.delete:hover {
+  background: var(--gray-400);
+  color: var(--danger);
+}
