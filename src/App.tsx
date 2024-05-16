@@ -7,12 +7,7 @@ import { TaskItem, TaskType } from './components/TaskItem';
 import './global.css';
 
 function App() {
-  const [tasks, setTasks] = useState<TaskType[]>([
-    { isDone: false, text: 'Estudar React' },
-    { isDone: false, text: 'Fazer Compra' },
-    { isDone: false, text: 'Estudar Node.js' },
-    { isDone: false, text: 'Ir pra academia' },
-  ])
+  const [tasks, setTasks] = useState<TaskType[]>([])
 
   function addTask(taskToAdd: string) {
     const newTask: TaskType = {
