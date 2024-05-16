@@ -1,21 +1,34 @@
-import { CheckCircle, Circle, Trash } from '@phosphor-icons/react'
-import { useState } from 'react'
-import styles from './TaskItem.module.css'
+import { CheckCircle, Circle, Trash } from '@phosphor-icons/react';
+import styles from './TaskItem.module.css';
 
-export function TaskItem() {
-  const [isDone, setIsDone] = useState(false)
+export interface TaskType {
+  text: string;
+  isDone: boolean;
+}
 
-  function handleDoneTask() {
-    setIsDone(!isDone)
+interface TaskItemProps {
+  task: TaskType;
+  onToggleTaskDone: (task: string) => void;
+  onDeleteTask: (task: string) => void;
+}
+
+export function TaskItem({ task, onToggleTaskDone, onDeleteTask }: TaskItemProps) {
+
+  function handleToggleTaskDone() {
+    onToggleTaskDone(task.text)
+  }
+
+  function handleDeleteTask() {
+    onDeleteTask(task.text)
   }
 
   return (
-    <div className={`${styles.taskItem} ${isDone && styles.isDone}`}>
-      <button onClick={handleDoneTask} className={styles.check}>
-        {!isDone ? <Circle size={24} /> : <CheckCircle size={24} weight='fill' />}
+    <div className={`${styles.taskItem} ${task.isDone && styles.isDone}`}>
+      <button onClick={handleToggleTaskDone} className={styles.check}>
+        {!task.isDone ? <Circle size={24} /> : <CheckCircle size={24} weight='fill' />}
       </button>
-      <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-      <button className={styles.delete}>
+      <p>{task.text}</p>
+      <button onClick={handleDeleteTask} className={styles.delete}>
         <Trash size={24} />
       </button>
     </div>
