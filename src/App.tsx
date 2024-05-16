@@ -14,6 +14,15 @@ function App() {
     { isDone: false, text: 'Ir pra academia' },
   ])
 
+  function addTask(taskToAdd: string) {
+    const newTask: TaskType = {
+      text: taskToAdd,
+      isDone: false,
+    }
+
+    setTasks(tasks => [...tasks, newTask])
+  }
+
   function toggleTaskDone(taskToToggle: string) {
     const tasksUpdated = tasks.map(task => {
       if (task.text === taskToToggle) {
@@ -40,7 +49,7 @@ function App() {
     <div>
       <Header />
       <div className={styles.wrapper}>
-        <AddTask />
+        <AddTask onAddTask={addTask} />
 
         <main className={styles.tasks}>
           <header>
