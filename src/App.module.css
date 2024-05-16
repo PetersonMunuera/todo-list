@@ -4,6 +4,7 @@
   flex-direction: column;
   gap: 4rem;
   margin: -1.68rem auto 0;
+  padding: 0 1rem;
 }
 
 .tasks header {
